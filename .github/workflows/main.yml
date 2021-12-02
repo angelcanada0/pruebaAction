@@ -12,7 +12,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         run: |
-          git remote add bitbucket https://github.com/angelcanada0/action-destino.git
+          git remote add origin https://github.com/angelcanada0/action-destino.git
           git config --global user.email "angel.canada.munoz"
           git config --global user.name "angelcanada0"
           git checkout master
