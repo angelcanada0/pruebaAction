@@ -7,17 +7,16 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: angelcanada0/pruebaAction
-      - name: Push in other repository
+      - name: Pushes to another repository
         id: push_directory
+        uses: angelcanada/pruebaAction
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        run: |
-          git init
-          git remote rm origin
-          git remote add origin https://github.com/angelcanada0/action-destino.git
-          git config --global user.email "angel.canada.munoz@accenture.com"
-          git config --global user.name "angelcanada0"
-          git checkout master
-          git push -u origin master
+        with:
+          source-directory: 'output'
+          destination-github-username: 'angelcanada0'
+          destination-repository-name: 'push-to-another-repository'
+          user-email: angel.canada.munoz@accenture.com
+          commit-message: initial commit
 
 
