@@ -13,7 +13,7 @@ jobs:
             path: ./pruebaAction
 
         - name: Get repository B
-          uses: actions/checkout@master
+          uses: actions/checkout@main
           with: 
             repository: angelcanada0/action-destino
             token: ${{ secrets.API_TOKEN_GITHUB }}
