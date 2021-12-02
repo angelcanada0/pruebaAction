@@ -1,0 +1,16 @@
+name: push-in-other-repository
+on: [push]
+jobs:
+  push-other-repository:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Push in other repository
+        id: push_directory
+        uses: angelcanada0/action-destino
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'pruebaAction'
+          destination-github-username: 'angelcanada0'
+          destination-repository-name: 'action-destino'
