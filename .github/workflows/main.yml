@@ -5,8 +5,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          repository: angelcanada0/pruebaAction
       - name: Push in other repository
         id: push_directory
         uses: angelcanada0/action-destino
-        run: git push -u origin master
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        run: |
+          mkdir dir
+          cd dir
+          git clone https://github.com/angelcanada0/pruebaAction.git
+          git commit -m 'initial'
+          git push -u origin master
+
 
