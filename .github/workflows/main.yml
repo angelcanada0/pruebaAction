@@ -4,9 +4,14 @@ jobs:
   push-other-repository:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
         with:
-          repository: angelcanada0/action-destino
-          path: ./
-
+          repository: angelcanada0/pruebaAction
+      - name: Push in other repository
+        id: push_directory
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        run: |
+          git remote set-url origin "https://github.com/angelcanada0/action-destino.git"
+          git push -u origin master
 
