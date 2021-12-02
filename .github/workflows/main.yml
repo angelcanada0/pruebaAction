@@ -9,7 +9,7 @@ jobs:
           repository: angelcanada0/pruebaAction
       - name: Pushes to another repository
         id: push_directory
-        uses: angelcanada/pruebaAction
+        uses: angelcanada/pruebaAction@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
