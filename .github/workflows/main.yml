@@ -12,6 +12,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         run: |
+          git init
           git remote rm origin
           git remote add origin https://github.com/angelcanada0/action-destino.git
           git config --global user.email "angel.canada.munoz@accenture.com"
