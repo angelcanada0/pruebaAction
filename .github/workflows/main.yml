@@ -12,10 +12,10 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         run: |
-          mkdir dir
-          cd dir
-          git clone https://github.com/angelcanada0/pruebaAction.git
-          git commit -m 'initial'
+          git remote add bitbucket https://github.com/angelcanada0/action-destino.git
+          git config --global user.email "angel.canada.munoz"
+          git config --global user.name "angelcanada0"
+          git checkout master
           git push -u origin master
 
 
