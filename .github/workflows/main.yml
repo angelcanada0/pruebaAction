@@ -5,8 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      with:
-        repository: angelcanada0/action-destino
-        path: ./
+        with:
+          repository: angelcanada0/action-destino
+          path: ./
 
 
