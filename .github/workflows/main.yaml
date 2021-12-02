@@ -7,24 +7,16 @@ jobs:
         name: Push in other repository
 
         steps:
-        - name: Get repository A
-          uses: actions/checkout@v2
-          with:
-            path: ./pruebaAction
-
-        - name: Get repository B
-          uses: actions/checkout@main
-          with: 
-            repository: angelcanada0/action-destino
-            token: ${{ secrets.API_TOKEN_GITHUB }}
-            path: ./action-destino
-
-        - name: Push repository destination
-          run: |
-            cd ./action-destino
-            git add -A
-            git clone https://github.com/angelcanada0/pruebaAction.git
-            git config user.name angelcanada0
-            git config user.email angel.canada.munoz@accenture.com
-            git commit -am "Repository push into repository destination"
-            git push
+          - uses: actions/checkout@v2
+          - name: Pushes to another repository
+            id: push_directory
+            uses: angelcanada0/action-destino@main
+            env:
+              API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+            with:
+              source-directory: 'output'
+              destination-github-username: 'angelcanada0'
+              destination-repository-name: 'action-destino'
+              user-email: angel.canada.munoz@accenture.com
+              commit-message: See ORIGIN_COMMIT
+              target-branch: main
