@@ -7,10 +7,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Push in other repository
         id: push_directory
-        uses: angelcanada0/action-destino@master
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source-directory: 'pruebaAction'
-          destination-github-username: 'angelcanada0'
-          destination-repository-name: 'action-destino'
+        uses: angelcanada0/action-destino
+        run: git push -u origin master
+
