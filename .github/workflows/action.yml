@@ -13,7 +13,7 @@ jobs:
             path: ./pruebaAction
 
         - name: Get repository B
-          uses: angelcanada0/action-destino
+          uses: angelcanada0/action-destino@main
           id: repositoryB
           with:
             path: ./action-destino
