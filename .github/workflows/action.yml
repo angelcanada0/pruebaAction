@@ -20,9 +20,8 @@ jobs:
 
         - name: Push repository destination
           run: |
-            mkdir action-destino
-            cd ./action-destino
             git clone https://github.com/angelcanada0/pruebaAction.git
+            git remote rename origin upstream
+            git remote add origin URL_TO_GITHUB_REPO
+            git push origin master
 
-            git remote set-url origin https://github.com/angelcanada0/action-destino.git
-            git push -u origin master
