@@ -22,9 +22,6 @@ jobs:
         - name: Push repository destination
           run: |
             cd ./action-destino
-            git add -A
-            git clone https://github.com/angelcanada0/pruebaAction.git
-            git add -A
 
             git config user.name angelcanada0
             git config user.email angel.canada.munoz@accenture.com
