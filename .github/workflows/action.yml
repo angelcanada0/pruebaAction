@@ -24,9 +24,10 @@ jobs:
         - name: Push repository destination
           run: |
             cd ./action-destino
-            git clone https://github.com/angelcanada0/pruebaAction.git
-            git add -A
+            echo "Prueba 1" > test.txt
+            git add .
             git config user.name angelcanada0
             git config user.email angel.canada.munoz@accenture.com
             git commit -am "Repository push into repository destination"
-            git push https://github.com/angelcanada0/action-destino.git
+            git push
+            
