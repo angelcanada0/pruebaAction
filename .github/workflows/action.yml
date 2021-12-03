@@ -12,12 +12,6 @@ jobs:
           with:
             path: ./pruebaAction
 
-        - name: Get repository B
-          uses: angelcanada0/action-destino@main
-          id: repositoryB
-          with:
-            path: ./action-destino
-
         - name: Push repository destination
           run: |
             git clone https://github.com/angelcanada0/pruebaAction.git
