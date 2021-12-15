@@ -30,7 +30,7 @@ jobs:
 
         - name: build image python
           run: |
-            docker build -t my-python-app
+            docker build -t my-python-app ./
 
         - name: Push repository destination
           run: |
