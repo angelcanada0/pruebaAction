@@ -1,12 +1,14 @@
-FROM python:3.8.2-slim as base
-FROM base
-COPY . /
-WORKDIR /
-EXPOSE 8000
 
-RUN apt-get -y update --fix-missing && \
-apt-get -y --no-install-recommends install libgomp1 && \
-pip install -q --no-cache-dir -r requirements.txt && \
-rm -rf /var/lib/apt/lists/*
-ENTRYPOINT [ "python" ]
-CMD ["prueba.py" ]
+FROM python:3-slim AS builder
+ADD . /
+WORKDIR /
+
+# We are installing a dependency here directly into our app source dir
+RUN pip install --target=/ requests
+
+# A distroless container image with Python and some basics like SSL certificates
+FROM gcr.io/distroless/python3-debian10
+COPY --from=builder / /
+WORKDIR /app
+ENV PYTHONPATH /
+CMD ["/prueba.py"]
