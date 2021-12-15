@@ -13,6 +13,20 @@ jobs:
           with:
             path: ./pruebaAction
 
+        - name: Get repository B
+          id: repoB
+          uses: actions/checkout@main
+          with: 
+            repository: angelcanada0/action-destino
+            token: ${{ secrets.API_TOKEN_GITHUB }}
+            path: ./action-destino
+
+        - name: docker login
+          env: 
+            DOCKER_USER: ${{ secrets.DOCKER_USER }}
+            DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          run: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
 
         - name: Push repository destination
