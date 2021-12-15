@@ -28,7 +28,10 @@ jobs:
           run: |
             docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
-
+        - name: build image python
+          run: |
+            docker build -t my-python-app .
+              
         - name: Push repository destination
           run: |
             cd ./action-destino

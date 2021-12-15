@@ -1,14 +1,6 @@
-
-FROM python:3-slim AS builder
-ADD . /
-WORKDIR /
-
-# We are installing a dependency here directly into our app source dir
-RUN pip install --target=/ requests
-
-# A distroless container image with Python and some basics like SSL certificates
-FROM gcr.io/distroless/python3-debian10
-COPY --from=builder / /
+FROM python:3.8-alpine
+RUN mkdir /app
+ADD . /app
 WORKDIR /app
-ENV PYTHONPATH /
-CMD ["/prueba.py"]
+RUN pip install -r requirements.txt
+CMD ["python", "app.py"]
