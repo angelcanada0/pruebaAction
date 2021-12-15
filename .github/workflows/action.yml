@@ -35,5 +35,4 @@ jobs:
         - name: Build Docker
           run: docker build --tag python-docker .
         - name: push version python to other repository
-          run: 
-              | docker push python-docker
+          run:  docker push python-docker
