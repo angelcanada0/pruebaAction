@@ -26,11 +26,11 @@ jobs:
             DOCKER_USER: ${{ secrets.DOCKER_USER }}
             DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           run: |
-            cd ..
             docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
         - name: build image python
           run: |
+            cd ..
             docker build -t my-python-app .
 
         - name: Push repository destination
