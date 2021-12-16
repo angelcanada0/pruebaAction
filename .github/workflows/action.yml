@@ -28,13 +28,14 @@ jobs:
           run: |
             docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         
-        
+        - name: Save version
+          run: |
+            cd ./pruebaAction
+            version=$(docker info)
+
             
         - name: Push repository destination
           run: |
-            cd ./pruebaAction
-            version="$(cat README.md)"
-
             cd ./action-destino
             echo $version > test.txt
             git add .
