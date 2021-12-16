@@ -30,7 +30,7 @@ jobs:
         
         - name: Save version
           run: |
-            version=$(cat README.md)
+            version="$(cat README.md)""
 
             
         - name: Push repository destination
