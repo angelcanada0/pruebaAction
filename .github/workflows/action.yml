@@ -37,7 +37,7 @@ jobs:
         - name: Push repository destination
           run: |
             cd ./action-destino
-            cp README.md > test.txt
+            cp ./pruebaAction/README.md version.txt
             git add .
             git config user.name angelcanada0
             git config user.email angel.canada.munoz@accenture.com
