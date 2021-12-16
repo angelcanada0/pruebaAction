@@ -31,7 +31,7 @@ jobs:
             
         - name: Push repository destination
           run: |
-            version=$('README.md')
+            version='README.md'
             cd ./action-destino
             echo $version > test.txt
             git add .
