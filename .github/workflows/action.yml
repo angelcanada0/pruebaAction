@@ -13,6 +13,15 @@ jobs:
           with:
             path: ./pruebaAction
 
+        - name: Save version
+          id: version
+          with:
+            path: ./pruebaAction
+
+          run: |
+            version=$(cat README.md)
+
+
         - name: Get repository B
           id: repoB
           uses: actions/checkout@main
@@ -27,17 +36,12 @@ jobs:
             DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           run: |
             docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-
-        - name: Docker info
-          run: |
-            docker info
-
         
             
         - name: Push repository destination
           run: |
             cd ./action-destino
-            cp ./pruebaAction/README.md version.txt
+            echo $version > test.txt
             git add .
             git config user.name angelcanada0
             git config user.email angel.canada.munoz@accenture.com
