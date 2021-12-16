@@ -13,15 +13,6 @@ jobs:
           with:
             path: ./pruebaAction
 
-        - name: Save version
-          id: version
-          with:
-            path: ./pruebaAction
-
-          run: |
-            version=$(cat README.md)
-
-
         - name: Get repository B
           id: repoB
           uses: actions/checkout@main
@@ -40,6 +31,7 @@ jobs:
             
         - name: Push repository destination
           run: |
+            version=$('README.md')
             cd ./action-destino
             echo $version > test.txt
             git add .
