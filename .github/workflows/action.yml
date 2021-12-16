@@ -34,12 +34,14 @@ jobs:
 
         - name: Docker build
           run: |
-           docker build -t my-python-app . -f Dockerfile.Dockerfile
+            docker build -t my-python-app .
+
+        
             
         - name: Push repository destination
           run: |
             cd ./action-destino
-            echo README.md > test.txt
+            echo "Version 1" > test.txt
             git add .
             git config user.name angelcanada0
             git config user.email angel.canada.munoz@accenture.com
