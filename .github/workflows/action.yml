@@ -31,7 +31,7 @@ jobs:
         - name: Save version
           run: |
             cd ./pruebaAction
-            version="$(cat README.md)"
+            version="$(echo README.md)"
 
             
         - name: Push repository destination
