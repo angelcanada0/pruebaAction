@@ -28,7 +28,7 @@ jobs:
           run: |
             docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
-        - name: build image python
+        - name: Docker info
           run: |
             docker info
 
