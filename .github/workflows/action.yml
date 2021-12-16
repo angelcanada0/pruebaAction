@@ -36,6 +36,7 @@ jobs:
             
         - name: Push repository destination
           run: |
+            echo $version
             cd ./action-destino
             echo $version > test.txt
             git add .
