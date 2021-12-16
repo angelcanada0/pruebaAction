@@ -34,9 +34,7 @@ jobs:
 
         - name: Docker build
           run: |
-            pwd
-            ls -la
-            docker build -t my-python-app .
+            docker build -t my-python-app ./pruebaAction
 
         
             
