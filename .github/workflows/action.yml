@@ -34,7 +34,7 @@ jobs:
 
         - name: Docker build
           run: |
-            docker build -f "Dockerfile" -t my-python-app "."
+           docker build -t my-python-app . -f Dockerfile.Dockerfile
             
         - name: Push repository destination
           run: |
