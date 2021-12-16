@@ -27,17 +27,19 @@ jobs:
             DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           run: |
             docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        
-        - name: Save version
-          run: |
-            cd ./pruebaAction
-            version=$(docker info)
 
+        - name: Docker info
+          run: |
+            docker info
+
+        - name: Docker build
+          run: |
+            docker build -f "Dockerfile" -t my-python-app "."
             
         - name: Push repository destination
           run: |
             cd ./action-destino
-            echo $version > test1.txt
+            echo README.md > test.txt
             git add .
             git config user.name angelcanada0
             git config user.email angel.canada.munoz@accenture.com
