@@ -30,6 +30,7 @@ jobs:
         
         - name: Save version
           run: |
+            cd ./pruebaAction
             version="$(cat README.md)"
 
             
