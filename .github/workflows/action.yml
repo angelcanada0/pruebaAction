@@ -44,16 +44,13 @@ jobs:
           run: |
             docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
-        - name: Docker info
-          run: |
-            docker info
-
-        - name: Build and push
-          uses: docker/build-push-action@v2
+        - name: Build
+          uses: docker/bake-action@v1
           with:
-            context: ./pruebaAction
-            tags: ${{ steps.meta.outputs.tags }}
-            labels: ${{ steps.meta.outputs.labels }}
+            files: |
+              ./docker-bake.hcl
+              ${{ steps.meta.outputs.bake-file }}
+            targets: build
      
         - name: Push repository destination
           run: |
