@@ -1,5 +1,10 @@
 name: push-in-other-repository
-on: push
+on: 
+  push:
+    branches:
+      - 'master'
+    tags:
+      - 'v*'
 
 jobs:
     push-other-repository:
@@ -21,6 +26,12 @@ jobs:
             token: ${{ secrets.API_TOKEN_GITHUB }}
             path: ./action-destino
 
+        - name: Docker meta
+          id: meta
+          uses: docker/metadata-action@v3
+          with:
+            images: name/app
+
         - name: docker login
           env: 
             DOCKER_USER: ${{ secrets.DOCKER_USER }}
@@ -32,12 +43,13 @@ jobs:
           run: |
             docker info
 
-        - name: Docker build
-          run: |
-            docker build -t my-python-app ./pruebaAction
-
-        
-            
+        - name: Build and push
+          uses: docker/build-push-action@v2
+          with:
+            context: ./pruebaAction
+            tags: ${{ steps.meta.outputs.tags }}
+            labels: ${{ steps.meta.outputs.labels }}
+     
         - name: Push repository destination
           run: |
             cd ./action-destino
