@@ -2,7 +2,7 @@ name: push-in-other-repository
 on: 
   push:
     branches:
-      - 'master'
+      - 'main'
     tags:
       - 'v*'
 
