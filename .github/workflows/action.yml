@@ -31,11 +31,6 @@ jobs:
           uses: docker/metadata-action@v3
           with:
             images: name/app
-            tags: |
-              type=ref,event=branch
-              type=ref,event=pr
-              type=semver,pattern={{version}},value=v1.0.0
-              type=semver,pattern={{major}}.{{minor}}
 
         - name: docker login
           env: 
@@ -53,10 +48,6 @@ jobs:
           with:
             context: ./pruebaAction
             tags: ${{ steps.meta.outputs.tags }}
-            labels: |
-              org.opencontainers.image.title=MyCustomTitle
-              org.opencontainers.image.description=Another description
-              org.opencontainers.image.vendor=MyCompany
               
               
         - name: Push repository destination
