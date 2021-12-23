@@ -34,8 +34,7 @@ jobs:
             tags: |
               type=ref,event=branch
               type=ref,event=pr
-              type=semver,pattern={{version}}
-              type=semver,pattern={{major}}.{{minor}}
+              type=match,pattern=\d.\d.\d
 
         - name: docker login
           env: 
